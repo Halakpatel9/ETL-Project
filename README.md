@@ -16,13 +16,6 @@ We are providing a pipeline that will allow the Head Anchor to understand the st
 - Use the Gun Violence Data for year 2018 and 2019
 
 
-#### Steps to Run Pipeline
-1)	Clone the repository to your local drive
-2)	Start MySQL Workbench and connect to your local database
-3)	Run gun_violence_analysis.sql
-a.	This will create gun_violence_src schema with all source and target tables.
-
-
 #### Data Sources
 Source 1: Gun Violence Data (https://www.gunviolencearchive.org/) – The source had all state Gun violence data. The data was in the .csv format. We saved the file to local drive and imported to SQL using the import wizard. We downloaded a total of 2 files with Mass shooting data. First file contained 2018 data and second file contained 2019 data for all states in the USA.
 
@@ -38,6 +31,17 @@ We choose the SQL as a main tool to perform the ETL process for following key re
 1)	Source data was only available in .csv format
 2)	The quickest way to provide the finished data
 3)	Ease of use and execution of the code
+
+#### Steps to Run Pipeline
+1)	Clone the repository to your local drive
+2)	Start MySQL Workbench and connect to your local database
+3)	Create gun_violence_src schema executing  gun_violence_analysis.sql [step by step to create Source Schema until -- USE SQL WORKBENCH IMPORT TO IMPORT DATA FROM CSV FILES]
+4)  Import data from /data folder using Workbench import utility:
+    - table mass_shoots_2018 - from file /data/mass_shootings_2018.csv
+    - table mass_shoots_2019 - from file /data/mass_shootings5_2019.csv
+    - table tri_state_unemployment - from file /data/Tri_state_unemployment.csv
+    create gun_violence_src schema with all source
+5)	Execute gun_violence_src schema [rest of the script from Create Target Schema onwards]. This will create Target Tables, Transform source data and load into Target Tables.
 
 #### Transformations applied:
 •	We Imported 3 files into SQL using Import Wizard. Once the file was loaded and tables were generated, we began the transformation by writing SQL script.
