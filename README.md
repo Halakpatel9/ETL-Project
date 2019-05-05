@@ -43,18 +43,18 @@ We choose the SQL as a main tool to perform the ETL process for following key re
 5)	Execute gun_violence_src schema [rest of the script from Create Target Schema onwards]. This will create Target Tables, Transform source data and load into Target Tables.
 
 #### Transformations applied:
-..*We Imported 3 files into SQL using Import Wizard. Once the file was loaded and tables were generated, we began the transformation by writing SQL script.
-..*We had to write date transformation logic to bring dates to one consistent format of MMYYYY across all data files from both data sources
-..*Mass shooting data is:
+..* We Imported 3 files into SQL using Import Wizard. Once the file was loaded and tables were generated, we began the transformation by writing SQL script.
+..* We had to write date transformation logic to bring dates to one consistent format of MMYYYY across all data files from both data sources
+..* Mass shooting data is:
 o	Filtered for NY, NJ, PA
 o	Aggregated (Sum of shootings, and count of mass shootings) all 3 states Metrics to Tri-State for Tri State Analysis
-..*BLS Unemployment Data is:
+..* BLS Unemployment Data is:
 o	Filtered for NY, NJ, PA
 o	Aggregated (average unemployment rate for Tri-State) all 3 states Metrics to Tri-State for Tri State Analysis
 o	Additional data clean up performed prior to aggregation:
 	Removed letter ‘M’ from the Period column.
 	Concatenated the year and period column.
-..*Lastly in the Target we had 2 final tables
+..* Lastly in the Target we had 2 final tables
 o	Table 1 – was unemployment table consisting of Date, Area and Unemployment rate
 o	Table 2 – Date, Area, Total Mass Shootings, Mass Shooting Injury, Mass Shooting Death
 
